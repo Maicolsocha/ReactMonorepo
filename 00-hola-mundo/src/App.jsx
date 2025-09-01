@@ -1,18 +1,13 @@
+import { Fragment } from 'react'
 import './app.css'
+import { XFollowCard } from './XFolllowCard'
 
 export function App(){
     return (
-        <aside class="card">
-            <div class="usuario">
-                <img src="https://unavatar.io/x/kikobeats" alt="icono usuario" />
-                <div class="usuario-nombre">
-                    <strong>Maicol Fernando Socha Jimenez</strong>
-                    <span>@MaicolSocha</span>
-                </div>
-            </div>
-            <div class="btn-seguir">
-                <button>Seguir</button>
-            </div>
-        </aside>
+        <div class="App">
+            <XFollowCard userName="maicolsocha" name="Maicol Fernando Socha Jimenes"/>
+            <XFollowCard userName="elmichi" name="Rumiador Bene"/>
+            <XFollowCard userName="elprofe" name="Nwrix Leadro Profe"/>
+        </div>
     )
 }
