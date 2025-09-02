@@ -27,14 +27,32 @@
     border-radius: 50%;
 }
 
-.card button{
+.x-followCard-button{
+    cursor: pointer;
     margin-left: 16px;
     border: 0px;
     border-radius: 999px;
     padding: 6px 16px;
     font-weight: bold;
+    transition: .3s ease all;
 }
 
+.x-followCard-button:hover{
+    background-color: #09f;
+    color: #fff;
+    
+}
+
+.x-followCard-button.is-following{
+    
+    
+    color: #000;
+}
+
+.x-followCard-button.is-following:hover{
+    background: red;
+    color: #000;
+}
 .App{
     display: flex;
     flex-direction: column;

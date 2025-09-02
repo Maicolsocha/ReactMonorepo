@@ -1,13 +1,22 @@
-import { Fragment } from 'react'
+
 import './app.css'
 import { XFollowCard } from './XFolllowCard'
 
 export function App(){
+    
+    const format = (userName) => `@${userName}`
+    
     return (
         <div class="App">
-            <XFollowCard userName="maicolsocha" name="Maicol Fernando Socha Jimenes"/>
-            <XFollowCard userName="elmichi" name="Rumiador Bene"/>
-            <XFollowCard userName="elprofe" name="Nwrix Leadro Profe"/>
+            <XFollowCard formatUserName={format} isFollowing={false} userName="maicolsocha" >
+                Maicol Fernando Socha Jimenes
+            </XFollowCard>
+            <XFollowCard formatUserName={format} isFollowing userName="elmichi" >
+                Rumiador Benevolente
+            </XFollowCard>
+            <XFollowCard formatUserName={format} isFollowing userName="elprofe">
+                Nwrix Leadro Profe
+            </XFollowCard>
         </div>
     )
 }
