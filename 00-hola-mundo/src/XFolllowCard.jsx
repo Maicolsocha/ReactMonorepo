@@ -1,7 +1,12 @@
-export function XFollowCard({ children, formatUserName, userName = 'unknow', isFollowing }) {
+import { useState } from "react"
+
+export function XFollowCard({ children, formatUserName, userName = 'unknow', initialIsFollowing }) {
+  const [isFollowing, setIsFollowing] = useState(initialIsFollowing)
   const text = isFollowing ? 'Siguiendo' : 'Seguir'
-  const buttonClass = isFollowing ? 'x-followCard-button is-following' : 'x-followCard-button'  
-  
+  const buttonClass = isFollowing ? 'x-followCard-button is-following' : 'x-followCard-button'
+  const handleClick = () => {
+    setIsFollowing(!isFollowing)
+  }
   return (
     <aside className="card">
         <div className="usuario">
@@ -12,7 +17,7 @@ export function XFollowCard({ children, formatUserName, userName = 'unknow', isF
             </div>
         </div>
         <div className="x-followCard-buttonContainer">
-            <button className={buttonClass}>{text}</button>
+            <button className={buttonClass} onClick={handleClick}>{text}</button>
         </div>
     </aside>
   )

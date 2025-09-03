@@ -7,14 +7,14 @@ export function App(){
     const format = (userName) => `@${userName}`
     
     return (
-        <div class="App">
-            <XFollowCard formatUserName={format} isFollowing={false} userName="maicolsocha" >
+        <div className="App">
+            <XFollowCard formatUserName={format}  userName="maicolsocha" initialIsFollowing={true}>
                 Maicol Fernando Socha Jimenes
             </XFollowCard>
-            <XFollowCard formatUserName={format} isFollowing userName="elmichi" >
+            <XFollowCard formatUserName={format}  userName="elmichi" >
                 Rumiador Benevolente
             </XFollowCard>
-            <XFollowCard formatUserName={format} isFollowing userName="elprofe">
+            <XFollowCard formatUserName={format}  userName="elprofe">
                 Nwrix Leadro Profe
             </XFollowCard>
         </div>
