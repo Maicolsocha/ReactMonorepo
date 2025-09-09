@@ -34,24 +34,35 @@
     border-radius: 999px;
     padding: 6px 16px;
     font-weight: bold;
+    width: 140px;
     transition: .3s ease all;
 }
 
 .x-followCard-button:hover{
     background-color: #09f;
     color: #fff;
-    
 }
 
 .x-followCard-button.is-following{
-    
-    
+
     color: #000;
 }
 
 .x-followCard-button.is-following:hover{
     background: red;
     color: #000;
+}
+
+.x-followCard-stopFollow{
+    display: none;
+}
+
+.x-followCard-button.is-following:hover .x-followCard-stopFollow{
+    display: block;
+}
+
+.x-followCard-button.is-following:hover .x-followCard-text{
+    display: none;
 }
 .App{
     display: flex;

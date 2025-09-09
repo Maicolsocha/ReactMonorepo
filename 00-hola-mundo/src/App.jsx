@@ -4,19 +4,39 @@ import { XFollowCard } from './XFolllowCard'
 
 export function App(){
     
-    const format = (userName) => `@${userName}`
+
+    const users =[
+        {
+            userName: 'MaicolSocha',
+            name: 'Maicol Fernando Socha Jimenes',
+            isFollowing: false
+        },
+        {
+            userName: 'elmichi',
+            name: 'Rumiador Benevolente',
+            isFollowing: true
+        },
+        {
+            userName: 'elprofe',
+            name: 'Nwrix Leadro Profe',
+            isFollowing: false
+        }
+    ]
     
     return (
         <div className="App">
-            <XFollowCard formatUserName={format}  userName="maicolsocha" initialIsFollowing={true}>
-                Maicol Fernando Socha Jimenes
-            </XFollowCard>
-            <XFollowCard formatUserName={format}  userName="elmichi" >
-                Rumiador Benevolente
-            </XFollowCard>
-            <XFollowCard formatUserName={format}  userName="elprofe">
-                Nwrix Leadro Profe
-            </XFollowCard>
+            {
+                users.map(user =>{
+                    const {userName, name, isFollowing} = user
+                    return(
+                        <XFollowCard userName={userName}
+                            key={userName}
+                            isFollowing={isFollowing}>
+                            {name}
+                        </XFollowCard>
+                    )
+                })
+            }
         </div>
     )
 }
