@@ -15,6 +15,7 @@ const Square = ({children, isSelected, updateBoard, index}) =>{
   const handleClick = () => {
     updateBoard(index)
   }
+
   return(
     <div onClick={handleClick} className={className}>
       {children}
@@ -54,6 +55,12 @@ function App() {
     return null
   }
 
+  const resetGame = () =>{
+    setBoard(Array(9).fill(null))
+    setTurn(TURNS.X)
+    setWinner(null)
+  }
+  
   const updateBoard = (index) =>{
     if(board[index] || winner) return
     const newBoard = [...board]
@@ -96,6 +103,27 @@ function App() {
           {TURNS.O}
         </Square>
       </section>
+
+      {
+        winner !== null &&(
+          <section className='winner'>
+            <div className='text'>
+              <h2>
+                {
+                  winner === false ? 'empate' : 'Gano: '
+                }
+              </h2>
+              <header className='win'>
+                {winner && <Square>{winner}</Square>}
+              </header>
+
+              <footer>
+                <button onClick={resetGame}>Empezar De Nuevo</button>
+              </footer>
+            </div>
+          </section>
+        )
+      }
 
     </main>
   )
