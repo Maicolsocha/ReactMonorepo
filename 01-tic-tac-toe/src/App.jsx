@@ -3,7 +3,8 @@ import { useState } from 'react'
 import './App.css'
 import {Square} from './components/Square.jsx'
 import { TURNS} from './constants.js'
-import { checkWinnerFrom } from './logic/board.js'
+import { checkWinnerFrom, checkEndGame} from './logic/board.js'
+
 import { WinnerModal } from './components/WinnerModal.jsx'
 
 function App() {
@@ -12,13 +13,6 @@ function App() {
   const [winner, setWinner] = useState(null)
   const [turn, setTurn] = useState(TURNS.X)
   
-
- 
-
-  const checkEndGame = (newBoard) =>{
-    return newBoard.every((square) => square !== null)
-  }
-
   const resetGame = () =>{
     setBoard(Array(9).fill(null))
     setTurn(TURNS.X)
@@ -33,6 +27,8 @@ function App() {
     
     const newTurn = turn === TURNS.X ? TURNS.O : TURNS.X
     setTurn(newTurn)
+
+    
 
     const newWinner = checkWinnerFrom(newBoard)
     if(newWinner){
