@@ -1,7 +1,7 @@
 import { useEffect,useState } from "react"
 
 
-function App() {
+const FollowMouse = () => {
   const [enabled, setEnabled] = useState(false)
   const [position, setPosition] = useState({x: 0, y:0})
   useEffect(()=>{
@@ -18,12 +18,11 @@ function App() {
       window.removeEventListener('pointermove', handleMove)
     }
   }, [enabled])
-
-  return (
-    <main>
+  return(
+    <>
       <div style={{
         position: 'absolute',
-        backgroundColor: '#09f',
+        backgroundColor: 'rgba(255, 51, 0, 1)',
         borderRadius: '50%',
         opacity: '0.8',
         pointerEvents: 'none',
@@ -32,12 +31,19 @@ function App() {
         width: 40,
         height: 40,
         transform: `translate(${position.x}px, ${position.y}px)`
-      }}>
-
+        }}>
       </div>
       <button onClick={()=> setEnabled(!enabled)}>
         {enabled ? 'Desactivar' : 'Activar'}
       </button>
+    </>
+  )
+}
+
+function App() {
+  return (
+    <main>
+      <FollowMouse/>
     </main>
   )
 }
